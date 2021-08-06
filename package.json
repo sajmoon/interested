@@ -6,27 +6,21 @@
     "app": "crud-app",
     "http": [
       {
-        "/todos": {
+        "/interests": {
           "method": "post",
-          "src": "/todos/create"
+          "src": "/interests/create"
         }
       },
       {
-        "/todos": {
+        "/interests": {
           "method": "get",
-          "src": "/todos/read"
+          "src": "/interests/read"
         }
       },
       {
-        "/todos/delete": {
+        "/account": {
           "method": "post",
-          "src": "/todos/delete"
-        }
-      },
-      {
-        "/todos/:id": {
-          "method": "post",
-          "src": "/todos/update"
+          "src": "/account/create"
         }
       }
     ],
@@ -41,12 +35,15 @@
     ]
   },
   "scripts": {
-    "start": "npx sandbox"
+    "start": "npx sandbox",
+    "test": "QUIET=1 tape test/*-test.js | tap-spec"
   },
   "dependencies": {
     "@architect/functions": "^3.13.9",
     "@architect/sandbox": "^3.4.0",
     "@begin/data": "^2.0.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^5.2.2",
     "tiny-json-http": "^7.3.0"
   }
 }
